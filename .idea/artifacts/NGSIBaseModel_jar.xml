@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NGSIBaseModel:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NGSIBaseModel_jar</output-path>
+    <root id="archive" name="NGSIBaseModel.jar">
+      <element id="module-output" name="NGSIBaseModel" />
+    </root>
+  </artifact>
+</component>
