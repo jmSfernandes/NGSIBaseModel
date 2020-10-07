@@ -66,15 +66,33 @@ public class NGSIBaseModelTester {
     }
 
     @Test
+    public void testFromNGSIKeyValues() throws Exception {
+        Car test = initCar();
+
+        JsonObject car_json = (JsonObject) readJSON("car_keyValues.json");
+        Car test_car = (Car) new Car().fromNGSI(car_json);
+
+        Assert.assertEquals(test, test_car);
+    }
+
+    @Test
     public void testFromNGSIComplexList() throws Exception {
         Sensor expected = initSensor();
 
-        JsonObject json = (JsonObject) readJSON("sensor.json");
+        JsonObject json = (JsonObject) readJSON("Sensor.json");
         Sensor actual = (Sensor) new Sensor().fromNGSI(json);
 
         Assert.assertEquals(actual, expected);
     }
+    @Test
+    public void testFromNGSIComplexListKeyValues() throws Exception {
+        Sensor expected = initSensor();
 
+        JsonObject json = (JsonObject) readJSON("Sensor_keyValues.json");
+        Sensor actual = (Sensor) new Sensor().fromNGSI(json);
+
+        Assert.assertEquals(actual, expected);
+    }
 
     private Car initCar() throws ParseException {
         Car test = new Car();
