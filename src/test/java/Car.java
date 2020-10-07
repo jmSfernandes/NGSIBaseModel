@@ -11,12 +11,15 @@ public class Car extends NGSIBaseModel{
 
     List<String> variations;
 
+    //this field will be ignored
     @NGSIIgnore
     String ignoreMe;
 
+    //this field will be parsed
     @NGSIEncoded
     String encodeMe;
 
+    //this field will be parsed from and to the format "yyyy-MM-dd'T'HH:mm:ss'Z'"
     Date timestamp;
 
     public String getId() {

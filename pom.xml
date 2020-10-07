@@ -10,8 +10,8 @@
     <version>1.0.0</version>
     <name>com.github.jmSfernandes.NGSIBaseModel</name>
     <description>
-        Simple library that allows java users to scan the available Wifi networks.
-        Available for Windows, Linux (iwlist must be installed) and MAC osx (airport).
+        This is a multi-purpose parser for the NGSI10 standard. The NGSI10 standard is a the default standard used by ORION the main Componnent of the FIWARE project.
+        This parser is able to simelly convert the Json objects received in the NGSI format (both standard and keyValues) to Java Classes. And also convert Java classes to the equivalent and compliant NGSI10 entities
     </description>
     <url>https://github.com/jmSfernandes/NGSIBaseModel</url>
 

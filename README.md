@@ -1,8 +1,8 @@
 # NGSIBaseModel
-This is a multiporposal parser for the NGSI10 standard.
+This is a multi-purpose parser for the NGSI10 standard.
 The NGSI10 standard is a the default standard used by [ORION](https://fiware-orion.readthedocs.io/en/master/) the main Componnent of the [FIWARE project](https://www.fiware.org/).
 
-This parser is able to simely convert the Json objects received in the NGSI format (both standard and keyValues) to Java Classes. 
+This parser is able to simply convert the Json objects received in the NGSI format (both standard and keyValues) to Java Classes. 
 And also convert Java classes to the equivalent and compliant NGSI10 entities.
 
 ### The Classes should extend the NGSIBaseModel. And fullfill the following constraints:
