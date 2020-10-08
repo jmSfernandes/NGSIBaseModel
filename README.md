@@ -1,15 +1,15 @@
-# com.github.jmSfernandes.NGSIBaseModel
+# NGSIBaseModel
 This is a multi-purpose parser for the NGSI10 standard.
 The NGSI10 standard is a the default standard used by [ORION](https://fiware-orion.readthedocs.io/en/master/) the main Componnent of the [FIWARE project](https://www.fiware.org/).
 
 This parser is able to simply convert the Json objects received in the NGSI format (both standard and keyValues) to Java Classes. 
 And also convert Java classes to the equivalent and compliant NGSI10 entities.
 
-### The Classes should extend the com.github.jmSfernandes.NGSIBaseModel. And fullfill the following constraints:
+### The Classes should extend the NGSIBaseModel. And fullfill the following constraints:
 
   - The class name should be the same as the entity type which we are parsing;
   
-  - the fields of the class must not be private;
+  - the fields of the class must be public, otherwise a reflection error will be raised due to the classes be in different packages;
   
   - You must use the JsonObject from the [Gson library](https://github.com/google/gson). You can easly convert from and to other Json libraries by calling the method `toString()` and parsing the string.
   
@@ -25,24 +25,24 @@ For other formats create String fields and parse them accordingly after the mode
 ## Example of a Class:
 ```java 
     
-public class com.github.jmSfernandes.Car extends com.github.jmSfernandes.NGSIBaseModel{
-    String id;
-    String model;
-    String color;
+public class Car extends NGSIBaseModel{
+    public String id;
+    public String model;
+    public String color;
     
     //this field will be converted into a JsonArray 
-    List<String> variations;
+    public List<String> variations;
     
     //this field will be ignored
     @NGSIIgnore
-    String ignoreMe;
+    public String ignoreMe;
     
     //this field will be parsed 
     @NGSIEncoded
-    String encodeMe;
+    public String encodeMe;
 
     //this field will be parsed from and to the format "yyyy-MM-dd'T'HH:mm:ss'Z'"
-    Date timestamp;
+    public Date timestamp;
     ...
     
     }
@@ -58,7 +58,7 @@ public class com.github.jmSfernandes.Car extends com.github.jmSfernandes.NGSIBas
 To convert json to a compliant class is just necessary to call the method <code>fromNgsi()</code> 
 ```java
     JsonObject json= new JsonObject(jsonString);
-    com.github.jmSfernandes.Car car= new com.github.jmSfernandes.Car().fromNGSI(json);
+    Car car= new Car().fromNGSI(json);
 
 ```
 
