@@ -1,4 +1,7 @@
 # NGSIBaseModel
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.jmSfernandes/NGSIBaseModel/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.jmSfernandes/NGSIBaseModel)
+
+
 This is a multi-purpose parser for the NGSI10 standard.
 The NGSI10 standard is a the default standard used by [ORION](https://fiware-orion.readthedocs.io/en/master/) the main Componnent of the [FIWARE project](https://www.fiware.org/).
 
