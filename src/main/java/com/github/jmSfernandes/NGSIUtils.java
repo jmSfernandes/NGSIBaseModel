@@ -1,3 +1,5 @@
+package com.github.jmSfernandes;
+
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
@@ -10,7 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Utils {
+public class NGSIUtils {
 
     public static JsonElement decodeAttribute(JsonElement value) throws UnsupportedEncodingException {
         String decoded = URLDecoder.decode(value.getAsJsonPrimitive().getAsString(), "UTF-8");

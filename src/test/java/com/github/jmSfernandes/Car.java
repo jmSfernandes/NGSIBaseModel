@@ -1,10 +1,12 @@
-import annotations.NGSIEncoded;
-import annotations.NGSIIgnore;
+package com.github.jmSfernandes;
+
+import com.github.jmSfernandes.annotations.NGSIEncoded;
+import com.github.jmSfernandes.annotations.NGSIIgnore;
 
 import java.util.Date;
 import java.util.List;
 
-public class Car extends NGSIBaseModel{
+public class Car extends NGSIBaseModel {
     String id;
     String model;
     String color;

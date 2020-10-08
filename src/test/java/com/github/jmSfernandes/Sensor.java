@@ -1,10 +1,9 @@
-import annotations.NGSIEncoded;
-import annotations.NGSIIgnore;
+package com.github.jmSfernandes;
 
 import java.util.Date;
 import java.util.List;
 
-public class Sensor extends NGSIBaseModel{
+public class Sensor extends NGSIBaseModel {
     String id;
     String model;
 

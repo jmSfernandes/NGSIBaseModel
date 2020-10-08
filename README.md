@@ -1,11 +1,11 @@
-# NGSIBaseModel
+# com.github.jmSfernandes.NGSIBaseModel
 This is a multi-purpose parser for the NGSI10 standard.
 The NGSI10 standard is a the default standard used by [ORION](https://fiware-orion.readthedocs.io/en/master/) the main Componnent of the [FIWARE project](https://www.fiware.org/).
 
 This parser is able to simply convert the Json objects received in the NGSI format (both standard and keyValues) to Java Classes. 
 And also convert Java classes to the equivalent and compliant NGSI10 entities.
 
-### The Classes should extend the NGSIBaseModel. And fullfill the following constraints:
+### The Classes should extend the com.github.jmSfernandes.NGSIBaseModel. And fullfill the following constraints:
 
   - The class name should be the same as the entity type which we are parsing;
   
@@ -15,7 +15,7 @@ And also convert Java classes to the equivalent and compliant NGSI10 entities.
   
   - The attributes of the class should be named the same as the entity attributes (ignoring case);
   - If the class is to be sent to an orion instance the id field should be defined, otherwise the id and type attributes will not be defined by the base model (You can still defined them manually after retriving the json);
-  - The class can have list field but they should either be `List<String>` or a <code>List</code> of another class that also extends the *NGSIBaseModel* 
+  - The class can have list field but they should either be `List<String>` or a <code>List</code> of another class that also extends the *com.github.jmSfernandes.NGSIBaseModel* 
   - If you want to parse date strings directly the class field should be of type date. The model only supports the format `"yyyy-MM-dd'T'HH:mm:ss'Z'"`(ISO8601). 
 For other formats create String fields and parse them accordingly after the model creates the objects.
   - If you have a field that supports any of the [forbidden characters of ORION](https://fiware-orion.readthedocs.io/en/master/user/forbidden_characters/index.html) use the annotation `@NGSIEncode`. 
@@ -25,7 +25,7 @@ For other formats create String fields and parse them accordingly after the mode
 ## Example of a Class:
 ```java 
     
-public class Car extends NGSIBaseModel{
+public class com.github.jmSfernandes.Car extends com.github.jmSfernandes.NGSIBaseModel{
     String id;
     String model;
     String color;
@@ -58,7 +58,7 @@ public class Car extends NGSIBaseModel{
 To convert json to a compliant class is just necessary to call the method <code>fromNgsi()</code> 
 ```java
     JsonObject json= new JsonObject(jsonString);
-    Car car= new Car().fromNGSI(json);
+    com.github.jmSfernandes.Car car= new com.github.jmSfernandes.Car().fromNGSI(json);
 
 ```
 
@@ -98,12 +98,12 @@ import through maven and graddle:
 ```xml
 <dependency>
     <groupId>com.github.jmSfernandes</groupId>
-    <artifactId>NGSIBaseModel</artifactId>
+    <artifactId>com.github.jmSfernandes.NGSIBaseModel</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
 ```json
-compile 'com.github.jmSfernandes:NGSIBaseModel:1.0.0'
+implementation 'com.github.jmSfernandes:com.github.jmSfernandes.NGSIBaseModel:1.0.0'
 ```
 
 Copyright [2020]

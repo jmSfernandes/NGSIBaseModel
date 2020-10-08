@@ -7,7 +7,7 @@
 
     <groupId>com.github.jmSfernandes</groupId>
     <artifactId>NGSIBaseModel</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <name>com.github.jmSfernandes.NGSIBaseModel</name>
     <description>
         This is a multi-purpose parser for the NGSI10 standard. The NGSI10 standard is a the default standard used by ORION the main Componnent of the FIWARE project.
@@ -15,16 +15,7 @@
     </description>
     <url>https://github.com/jmSfernandes/NGSIBaseModel</url>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
@@ -110,6 +101,17 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
     <scm>
         <connection>scm:git:git://github.com/jmSfernandes/NGSIBaseModel.git</connection>
         <developerConnection>scm:git:ssh://github.com:jmSfernandes/NGSIBaseModel.git</developerConnection>

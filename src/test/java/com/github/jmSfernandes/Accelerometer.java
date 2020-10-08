@@ -1,3 +1,7 @@
+package com.github.jmSfernandes;
+
+import com.github.jmSfernandes.NGSIBaseModel;
+
 import java.util.Date;
 
 public class Accelerometer extends NGSIBaseModel {

@@ -1,21 +1,15 @@
+package com.github.jmSfernandes;
 
-
-import annotations.NGSIEncoded;
-import annotations.NGSIIgnore;
+import com.github.jmSfernandes.annotations.NGSIEncoded;
+import com.github.jmSfernandes.annotations.NGSIIgnore;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,16 +53,16 @@ public class NGSIBaseModel {
             if (value.isJsonPrimitive()) {
                 if (value.getAsJsonPrimitive().isString()) {
                     if (isEncoded)
-                        value = Utils.decodeAttribute(value);
+                        value = NGSIUtils.decodeAttribute(value);
                     if (field.getType().equals(Date.class)) {
-                        if (Utils.isDate(value.getAsString()))
-                            field.set(obj, Utils.getAsDate(value.getAsString()));
+                        if (NGSIUtils.isDate(value.getAsString()))
+                            field.set(obj, NGSIUtils.getAsDate(value.getAsString()));
                     } else {
                         field.set(obj, value.getAsString());
                     }
                 } else if (value.getAsJsonPrimitive().isNumber()) {
 
-                    field.set(obj, Utils.getAsNumber(value, field));
+                    field.set(obj, NGSIUtils.getAsNumber(value, field));
                 }
             } else if (value.isJsonArray()) {
                 if (field.getType().equals(List.class) || field.getType().equals(ArrayList.class)) {
@@ -79,7 +73,7 @@ public class NGSIBaseModel {
                     for (JsonElement element : value.getAsJsonArray()) {
 
                         if (isEncoded)
-                            element = Utils.decodeAttribute(element);
+                            element = NGSIUtils.decodeAttribute(element);
 
                         if (itemType.equals(String.class)) {
                             array.add(element.getAsString());
@@ -97,7 +91,7 @@ public class NGSIBaseModel {
                 }
             } else if (value.isJsonObject()) {
                 if (isEncoded)
-                    value = Utils.decodeAttribute(value);
+                    value = NGSIUtils.decodeAttribute(value);
 
                 Object obj_sub = field.getType().newInstance();
                 if (field.getClass().getSuperclass() != null && field.getClass().getSuperclass().equals(NGSIBaseModel.class)) {
@@ -157,11 +151,11 @@ public class NGSIBaseModel {
         Class<?> value_class = value.getClass();
         if (String.class.equals(value_class)) {
             if (isEncoded)
-                value = Utils.encodeAttribute((String) value);
+                value = NGSIUtils.encodeAttribute((String) value);
             attrObj.addProperty("value", (String) value);
             attrObj.addProperty("type", "Text");
         } else if (Date.class.equals(value_class)) {
-            attrObj.addProperty("value", Utils.formatDate((Date) value));
+            attrObj.addProperty("value", NGSIUtils.formatDate((Date) value));
             attrObj.addProperty("type", "ISO8601");
         } else if (Integer.class.equals(value_class) || int.class.equals(value.getClass())) {
             attrObj.addProperty("value", (Number) value);
