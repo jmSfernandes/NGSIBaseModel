@@ -102,11 +102,11 @@ import through maven and graddle:
 <dependency>
     <groupId>com.github.jmSfernandes</groupId>
     <artifactId>com.github.jmSfernandes.NGSIBaseModel</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 ```json
-implementation 'com.github.jmSfernandes:com.github.jmSfernandes.NGSIBaseModel:1.0.0'
+implementation 'com.github.jmSfernandes:com.github.jmSfernandes.NGSIBaseModel:1.0.2'
 ```
 
 Copyright [2020]
