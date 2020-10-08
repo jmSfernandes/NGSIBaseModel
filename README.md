@@ -92,8 +92,7 @@ To convert json to a compliant class is just necessary to call the method <code>
 ```
 
 
-
-
+## Use the Library
 
 
 ```
